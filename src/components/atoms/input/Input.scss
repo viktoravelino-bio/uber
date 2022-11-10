@@ -1,0 +1,9 @@
+.input-root {
+  --clr-input-bg: var(--clr-gray-200);
+  --clr-input-bg-hover: var(--clr-gray-100);
+
+  background-color: var(--clr-input-bg);
+  border: none;
+  outline: none;
+  border-radius: 1rem;
+}

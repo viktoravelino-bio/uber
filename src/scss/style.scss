@@ -1,0 +1,25 @@
+@import 'base';
+@import 'abstracts';
+@import 'components';
+
+:root {
+  @each $name, $shades in $colors {
+    @each $shade, $color in $shades {
+      --clr-#{$name}-#{$shade}: #{$color};
+    }
+  }
+
+  --clr-black: #000;
+  --clr-white: #fff;
+
+  --clr-text: var(--clr-black);
+
+  --clr-item-hover: var(--clr-gray-100);
+}
+
+body {
+  color: var(--clr-text);
+  // background: black;
+  // display: grid;
+  // place-items: center;
+}

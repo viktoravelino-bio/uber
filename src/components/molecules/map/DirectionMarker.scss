@@ -1,0 +1,44 @@
+.direction-marker {
+  position: relative;
+  display: grid;
+  place-items: center;
+  background-color: black;
+  width: 16px;
+  height: 16px;
+  border-radius: 100%;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 30%;
+    height: 30%;
+    border-radius: 100%;
+    background-color: white;
+  }
+
+  &[data-type-destination='true'] {
+    border-radius: 0;
+
+    &::before {
+      border-radius: 0;
+    }
+    > span {
+      z-index: -1;
+    }
+  }
+
+  > span {
+    cursor: pointer;
+    background-color: white;
+    white-space: nowrap;
+    padding: 8px 8px;
+    position: absolute;
+    bottom: 100%;
+    left: 100%;
+    font-size: 0.875rem;
+    box-shadow: 0 0 9px 0px rgba(0, 0, 0, 0.25);
+  }
+}
