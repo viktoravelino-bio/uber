@@ -1,0 +1,44 @@
+.search-address-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  //   flex-direction: column;
+  cursor: pointer;
+  padding-inline: 1rem;
+  > .icon-container {
+    display: grid;
+    place-items: center;
+    height: 2.5rem;
+    width: 2.5rem;
+    background-color: var(--clr-gray-300);
+    border-radius: 100%;
+  }
+
+  > .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    height: 4.5rem;
+    border-bottom: 1px solid var(--clr-gray-300);
+
+    > strong {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+    > span {
+      font-size: 0.875rem;
+    }
+  }
+
+  &[data-current-location='true'] {
+    > .icon-container {
+      background-color: var(--clr-black);
+      color: var(--clr-white);
+    }
+  }
+
+  &:hover {
+    background-color: var(--clr-gray-100);
+  }
+}

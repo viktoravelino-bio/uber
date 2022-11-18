@@ -1,6 +1,5 @@
 import {
   GoogleMap,
-  useJsApiLoader,
   DirectionsService,
   DirectionsRenderer,
   Marker,
@@ -54,15 +53,11 @@ export function Map({ origin, destination, extraMarkers = [] }) {
     return {
       origin: {
         location: origin?.location,
-        address: origin?.address.split(',')[0],
-        // location: directionsResponse?.routes[0].legs[0].start_location,
-        // address: directionsResponse?.routes[0].legs[0].start_address,
+        address: origin?.address?.split(',')[0],
       },
       destination: {
         location: destination?.location,
-        address: destination?.address.split(',')[0],
-        // location: directionsResponse?.routes[0].legs[0].end_location,
-        // address: directionsResponse?.routes[0].legs[0].end_address,
+        address: destination?.address?.split(',')[0],
       },
     };
   }, [destination, origin]);
@@ -77,23 +72,22 @@ export function Map({ origin, destination, extraMarkers = [] }) {
         disableDefaultUI: true,
       }}
     >
-      {!origin ||
-        (!destination && (
-          <DirectionsService
-            options={directionsServiceOptions}
-            callback={directionsCallback}
-          />
-        ))}
+      {origin?.location && destination?.location && (
+        <DirectionsService
+          options={directionsServiceOptions}
+          callback={directionsCallback}
+        />
+      )}
 
       {directionsResponse !== null && (
         <DirectionsRenderer options={directionResponseOptions} />
       )}
 
-      {origin && (
+      {origin?.location && (
         <DirectionMarker {...directionMarkersPosition.origin} type="origin" />
       )}
 
-      {destination && (
+      {destination?.location && (
         <DirectionMarker
           {...directionMarkersPosition.destination}
           type="destination"
