@@ -1,0 +1,41 @@
+:root {
+  --map-view-height: calc(100vh / 2);
+}
+
+.map__container {
+  height: var(--map-view-height);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  pointer-events: auto;
+}
+
+.bottom-sheet {
+  position: relative;
+  pointer-events: none;
+  top: var(--map-view-height);
+  z-index: 2;
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+
+  .bottom-sheet__content-container {
+    pointer-events: auto;
+    min-height: 100vh;
+    background-color: white;
+
+    .bottom-sheet__container {
+      position: relative;
+      //   text-align: center;
+      padding-block: 0.5rem 1rem;
+      cursor: grab;
+
+      .bottom-sheet__handle {
+        background-color: var(--clr-gray-300);
+        height: 0.25rem;
+        width: 12%;
+        margin-inline: auto;
+      }
+    }
+  }
+}

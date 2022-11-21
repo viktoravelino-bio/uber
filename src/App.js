@@ -1,13 +1,10 @@
 import { useJsApiLoader } from '@react-google-maps/api';
-import { createBrowserRouter, RouterProvider, Route } from 'react-router-dom';
-import { Home } from './routes/home';
-
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Home />,
-  },
-]);
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import { MapView } from './components/view/mapView';
+import { LocationProvider } from './context/LocationContext';
+import { RideProvider } from './context/RideContext';
+import { Looking } from './routes/looking';
+import { RideSelection } from './routes/ride-selection';
 
 const libraries = ['places'];
 
@@ -21,7 +18,20 @@ function App() {
     return null;
   }
 
-  return <RouterProvider router={router} />;
+  return (
+    <BrowserRouter>
+      <LocationProvider>
+        <RideProvider>
+          <Routes>
+            <Route path="/" element={<MapView />}>
+              <Route index element={<Looking />} />
+              <Route path="ride-selection" element={<RideSelection />} />
+            </Route>
+          </Routes>
+        </RideProvider>
+      </LocationProvider>
+    </BrowserRouter>
+  );
 }
 
 export default App;

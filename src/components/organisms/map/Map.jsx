@@ -5,6 +5,8 @@ import {
   Marker,
 } from '@react-google-maps/api';
 import { useCallback, useMemo, useState } from 'react';
+import { useLocation } from '../../../context/LocationContext';
+import { useRideContext } from '../../../context/RideContext';
 import { DirectionMarker } from './DirectionMarker';
 import { mapStyle } from './mapStyle';
 
@@ -18,7 +20,13 @@ const center = {
   lng: -79.4212276,
 };
 
-export function Map({ origin, destination, extraMarkers = [] }) {
+export function Map({ extraMarkers = [] }) {
+  const { currentLocation } = useLocation();
+  const { ride } = useRideContext();
+
+  const origin = ride?.origin;
+  const destination = ride?.destination;
+
   const [directionsResponse, setDirectionsResponse] = useState(null);
 
   const directionsCallback = useCallback((res) => {
@@ -63,15 +71,27 @@ export function Map({ origin, destination, extraMarkers = [] }) {
   }, [destination, origin]);
 
   return (
+    //   <div
+    //   style={{
+    //     height: 'calc(100vh/2)',
+    //     position: 'fixed',
+    //     top: 0,
+    //     left: 0,
+    //     right: 0,
+    //     pointerEvents: 'auto',
+    //   }}
+    // >
     <GoogleMap
       mapContainerStyle={containerStyle}
-      center={center}
-      zoom={10}
+      center={currentLocation || center}
+      zoom={currentLocation ? 15 : 10}
       options={{
         styles: mapStyle,
         disableDefaultUI: true,
       }}
     >
+      {currentLocation && <Marker position={currentLocation} />}
+
       {origin?.location && destination?.location && (
         <DirectionsService
           options={directionsServiceOptions}

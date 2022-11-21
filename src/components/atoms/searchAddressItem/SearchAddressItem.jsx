@@ -18,7 +18,7 @@ export function SearchAddressItem({
   description,
   ...props
 }) {
-  console.log(prediction);
+  // console.log(prediction);
   const title = prediction?.structured_formatting.main_text || name;
   const infoDescription =
     prediction?.structured_formatting.secondary_text || description;
