@@ -1,10 +1,19 @@
-import { Outlet } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Outlet, useNavigate } from 'react-router-dom';
+import { useRideContext } from '../../context/RideContext';
 import { Header } from '../molecules/header/Header';
 import { Map } from '../organisms/map/Map';
 
 import './mapView.scss';
 
 export function MapView() {
+  const { ride } = useRideContext();
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!ride.origin.location || !ride.destination.location) {
+      navigate('/');
+    }
+  }, []);
   return (
     <div>
       <Header />

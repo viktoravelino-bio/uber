@@ -13,7 +13,7 @@ export function Looking() {
     showFullScreen,
     setShowFullScreen,
   } = useRideContext();
-  const { currentAddress, loading } = useLocation();
+  const { currentAddress, loading, currentLocationPlaceId } = useLocation();
 
   return (
     <div
@@ -62,6 +62,7 @@ export function Looking() {
               name={loading ? 'Fetching...' : currentAddress}
               type="current-location"
               description="Your current location"
+              onClick={() => handleChangePlace(currentLocationPlaceId)}
             />
             <SearchAddressItem name="Set location on map" type="map-location" />
           </>
@@ -71,7 +72,7 @@ export function Looking() {
           <SearchAddressItem
             key={pred.place_id}
             prediction={pred}
-            onClick={() => handleChangePlace(pred)}
+            onClick={() => handleChangePlace(pred.place_id)}
           />
         ))}
       </div>

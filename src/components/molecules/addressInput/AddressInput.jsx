@@ -3,9 +3,9 @@ import { DestinationInputIcon, PickupInputIcon } from '../../../assets/icons';
 import { useRideContext } from '../../../context/RideContext';
 import './AddressInput.scss';
 
-const Input = forwardRef(({ type = 'pickup', ...props }, ref) => {
+const Input = forwardRef(({ type = 'pickup', isFocused, ...props }, ref) => {
   return (
-    <div className="address-input__input">
+    <div className={`address-input__input ${isFocused ? 'active' : ''}`}>
       <div>
         {type === 'pickup' ? <PickupInputIcon /> : <DestinationInputIcon />}
       </div>
@@ -20,7 +20,7 @@ const Input = forwardRef(({ type = 'pickup', ...props }, ref) => {
 });
 
 export function AddressInput({ onFocus }) {
-  const { ride, handleChange, setType } = useRideContext();
+  const { ride, handleChange, setType, type } = useRideContext();
   const [originValue, setOriginValue] = useState(ride?.origin.address || '');
   const [destinationValue, setDestinationValue] = useState(
     ride?.origin.address || ''
@@ -50,6 +50,7 @@ export function AddressInput({ onFocus }) {
   return (
     <div className="address-input__container">
       <Input
+        isFocused={type === 'origin'}
         name="origin"
         placeholder="Add a pickup location"
         onFocus={handleFocus}
@@ -58,6 +59,7 @@ export function AddressInput({ onFocus }) {
       />
 
       <Input
+        isFocused={type === 'destination'}
         name="destination"
         placeholder="Enter your destination"
         type="destination"

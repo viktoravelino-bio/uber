@@ -5,6 +5,7 @@ const LocationContext = createContext({});
 export function LocationProvider({ children }) {
   const [currentLocation, setLocation] = useState(null);
   const [currentAddress, setAddress] = useState('');
+  const [currentLocationPlaceId, setLocationPlaceId] = useState('');
   const [loading, setLoading] = useState(true);
 
   const Gecoder = useMemo(() => new window.google.maps.Geocoder(), []);
@@ -33,7 +34,7 @@ export function LocationProvider({ children }) {
       const { results } = await Gecoder.geocode({
         location: currentLocation,
       });
-
+      setLocationPlaceId(results[0].place_id);
       setAddress(results[0].formatted_address.split(',')[0]);
       setLoading(false);
     }
@@ -42,7 +43,12 @@ export function LocationProvider({ children }) {
 
   return (
     <LocationContext.Provider
-      value={{ currentLocation, currentAddress, loading }}
+      value={{
+        currentLocation,
+        currentAddress,
+        loading,
+        currentLocationPlaceId,
+      }}
     >
       {children}
     </LocationContext.Provider>

@@ -1,0 +1,52 @@
+{
+  "rideTypes": {
+    "UberX": {
+      "image": "https://d1a3f4spazzrp4.cloudfront.net/car-types/haloProductImages/v1.1/UberX_v1.png",
+      "displayName": "UberX",
+      "passengerCount": 4,
+      "description": "Affordable, everyday rides",
+      "priceDetails": {
+        "base": 3.17,
+        "minimum": 5.25,
+        "costPerMinute": 0.18,
+        "costPerDistance": 0.81,
+        "surcharge": 0.38,
+        "bookingFee": 2.75,
+        "cancellationFee": 5,
+        "waitingTime": 0.35
+      }
+    },
+    "Comfort": {
+      "image": "https://d1a3f4spazzrp4.cloudfront.net/car-types/haloProductImages/package_UberComfort_new_2022.png",
+      "displayName": "Comfort",
+      "passengerCount": 4,
+      "description": "Newer cards with extra legroom",
+      "priceDetails": {
+        "base": 4.44,
+        "minimum": 11.72,
+        "costPerMinute": 0.26,
+        "costPerDistance": 0.93,
+        "surcharge": 0.38,
+        "bookingFee": 3.58,
+        "cancellationFee": 5,
+        "waitingTime": 0.6
+      }
+    },
+    "UberXL": {
+      "image": "https://d1a3f4spazzrp4.cloudfront.net/car-types/haloProductImages/package_UberXL_new_2022.png",
+      "displayName": "UberXL",
+      "passengerCount": 6,
+      "description": "Affordable rides for groups up to 6",
+      "priceDetails": {
+        "base": 5.67,
+        "minimum": 8,
+        "costPerMinute": 0.25,
+        "costPerDistance": 1.55,
+        "surcharge": 0.38,
+        "bookingFee": 3.0,
+        "cancellationFee": 5,
+        "waitingTime": 0.6
+      }
+    }
+  }
+}

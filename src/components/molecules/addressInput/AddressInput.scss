@@ -24,7 +24,8 @@
     padding-inline: 0.875rem;
     border: 2px solid transparent;
 
-    &:focus-within {
+    &:focus-within,
+    &.active {
       border-color: black;
     }
 
