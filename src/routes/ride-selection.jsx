@@ -9,7 +9,6 @@ export function RideSelection() {
   const rideTypeArray = Object.entries(rideTypes);
   const [selectedRideTypeKey, setSelectedRideTypeKey] = useState('');
   const [showExtraInfo, setShowExtraInfo] = useState(false);
-  console.log(showExtraInfo);
 
   function handleRideTypeClick(key) {
     if (selectedRideTypeKey === key) {
