@@ -15,7 +15,8 @@
   --clr-text: var(--clr-black);
 }
 
-body {
+body,
+button {
   color: var(--clr-text);
   // background: black;
   // display: grid;

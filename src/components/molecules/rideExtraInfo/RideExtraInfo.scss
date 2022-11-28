@@ -1,0 +1,39 @@
+.ride-extra-info {
+  &__header {
+    display: flex;
+    flex-direction: column;
+
+    border-bottom: 1px solid var(--clr-gray-500);
+    padding-bottom: 0.5rem;
+    font-size: 1rem;
+    color: var(--clr-gray-700);
+
+    > .icon-button {
+      align-self: flex-end;
+    }
+
+    &__title {
+      color: var(--clr-black);
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    > p {
+      color: var(--clr-gray-600);
+    }
+
+    &__price-detail-item {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}

@@ -3,7 +3,7 @@
 }
 
 .map__container {
-  height: var(--map-view-height);
+  height: calc(100vh / 2);
   position: fixed;
   top: 0;
   left: 0;
@@ -18,15 +18,15 @@
   z-index: 2;
   border-radius: 10px 10px 0 0;
   overflow: hidden;
+  min-height: 100vh;
+  background-color: white;
 
   .bottom-sheet__content-container {
     pointer-events: auto;
-    min-height: 100vh;
     background-color: white;
 
     .bottom-sheet__container {
       position: relative;
-      //   text-align: center;
       padding-block: 0.5rem 1rem;
       cursor: grab;
 

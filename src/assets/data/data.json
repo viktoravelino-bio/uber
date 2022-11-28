@@ -47,6 +47,37 @@
         "cancellationFee": 5,
         "waitingTime": 0.6
       }
+    },
+    "Uber-Green": {
+      "image": "https://d1a3f4spazzrp4.cloudfront.net/car-types/haloProductImages/v1.1/UberX_Green.png",
+      "displayName": "Uber Green",
+      "passengerCount": 4,
+      "description": "Eco-Friendly",
+      "priceDetails": {
+        "base": 3.17,
+        "minimum": 5.25,
+        "costPerMinute": 0.18,
+        "costPerDistance": 0.81,
+        "surcharge": 1.38,
+        "bookingFee": 2.75,
+        "cancellationFee": 5,
+        "waitingTime": 0.6
+      }
     }
-  }
+  },
+  "paymentOptions": [
+    {
+      "id": "0001",
+      "lastFour": "1234",
+      "type": "visa",
+      "isDefault": true,
+      "nickName": "My Visa"
+    },
+    {
+      "id": "0002",
+      "lastFour": "5678",
+      "type": "mastercard",
+      "isDefault": false
+    }
+  ]
 }

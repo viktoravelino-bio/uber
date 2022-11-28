@@ -8,3 +8,8 @@ export { ReactComponent as ChevronDownIcon } from './chevron-down-icon.svg';
 export { ReactComponent as UserIcon } from './user-icon.svg';
 export { ReactComponent as ArrowLeftIcon } from './arrow-left-icon.svg';
 export { ReactComponent as PersonIcon } from './person-icon.svg';
+export { ReactComponent as ChevronRightIcon } from './chevron-right-icon.svg';
+export { ReactComponent as CloseIcon } from './close-icon.svg';
+export { ReactComponent as AddIcon } from './add-icon.svg';
+export { ReactComponent as BusinessIcon } from './business-icon.svg';
+export { ReactComponent as CheckIcon } from './check-icon.svg';

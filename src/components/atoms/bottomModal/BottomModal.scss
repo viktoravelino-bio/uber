@@ -1,0 +1,107 @@
+@keyframes slideInUp {
+  from {
+    transform: translate(0, 100%);
+  }
+
+  to {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  to {
+    display: block;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  to {
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@keyframes slideOutDown {
+  from {
+    transform: translate(0, 0);
+  }
+
+  to {
+    transform: translate(0, 100%);
+  }
+}
+
+.bottom-modal {
+  --animation-duration: 0.3s;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0);
+  pointer-events: none;
+  animation-name: fadeOut;
+  animation-duration: var(--animation-duration);
+  animation-fill-mode: forwards;
+
+  &__content {
+    bottom: 0;
+    transform: translate(0, 100%);
+    animation-name: slideOutDown;
+    animation-duration: var(--animation-duration);
+    animation-fill-mode: forwards;
+
+    position: absolute;
+    height: 65%;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+
+    width: 100%;
+    background-color: var(--clr-white);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px -4px 16px -4px;
+    display: flex;
+    flex-direction: column;
+
+    > button {
+      display: inline-flex;
+      line-height: 1rem;
+      background-color: transparent;
+      border: none;
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
+      cursor: pointer;
+      transition: color 0.3s;
+
+      &:hover {
+        color: var(--clr-gray-700);
+      }
+
+      > svg {
+        height: 15px;
+        width: 15px;
+      }
+    }
+  }
+
+  &[data-visible='true'] {
+    display: block;
+    animation-name: fadeIn;
+    pointer-events: auto;
+
+    .bottom-modal {
+      &__content {
+        animation-name: slideInUp;
+      }
+    }
+  }
+}
