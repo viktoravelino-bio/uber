@@ -1,0 +1,39 @@
+.selection-list-item {
+  display: flex;
+  align-items: center;
+  padding-right: 1rem;
+  cursor: pointer;
+  border: none;
+  background-color: var(--clr-white);
+
+  &__left-icon-container {
+    width: 64px;
+    display: grid;
+    place-items: center;
+    margin-inline: auto;
+
+    > img {
+      width: 22px;
+    }
+  }
+
+  &__label-container {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-height: 4.5rem;
+    font-size: 0.875rem;
+  }
+
+  &__right-icon-container {
+    margin-left: auto;
+    height: 100%;
+    display: grid;
+    place-items: center;
+  }
+
+  &:not(:last-child) &__label-container,
+  &:not(:last-child) &__right-icon-container {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  }
+}

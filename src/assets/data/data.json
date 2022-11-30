@@ -1,4 +1,11 @@
 {
+  "images_url": {
+    "visa": "https://d3i4yxtzktqr9n.cloudfront.net/web-payments-experience/c57afa92c9773650.svg",
+    "mastercard": "https://d3i4yxtzktqr9n.cloudfront.net/web-payments-experience/2c03f0a00a6e70e3.svg",
+    "generic-card": "https://d3i4yxtzktqr9n.cloudfront.net/web-payments-experience/a90ee32180aec8e4.svg",
+    "user-square": "https://d3i4yxtzktqr9n.cloudfront.net/web-payments-experience/12a9cec4e3ad2eac.svg",
+    "pay-pal": "https://d3i4yxtzktqr9n.cloudfront.net/web-payments-experience/29c3a6a2d4cd40fa.svg"
+  },
   "rideTypes": {
     "UberX": {
       "image": "https://d1a3f4spazzrp4.cloudfront.net/car-types/haloProductImages/v1.1/UberX_v1.png",

@@ -6,6 +6,7 @@ import { PaymentProvider } from './context/PaymentContext';
 import { RideProvider } from './context/RideContext';
 import { Looking } from './routes/looking';
 import { RideSelection } from './routes/ride-selection';
+import { Testings } from './routes/testings';
 
 const libraries = ['places'];
 
@@ -29,6 +30,8 @@ function App() {
                 <Route index element={<Looking />} />
                 <Route path="ride-selection" element={<RideSelection />} />
               </Route>
+
+              <Route path="/testing" element={<Testings />} />
             </Routes>
           </PaymentProvider>
         </RideProvider>
