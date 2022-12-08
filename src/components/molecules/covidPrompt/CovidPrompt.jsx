@@ -17,6 +17,10 @@ export const CovidPrompt = ({ onRequestRide, ...props }) => {
     } else {
       document.body.style.overflow = 'unset';
     }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
   }, [props.visible]);
 
   useEffect(() => {
