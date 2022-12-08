@@ -14,7 +14,6 @@ export function NewCardForm({ context }) {
           {(inputProps) => (
             <FormInput
               label="Card Number"
-              errorMessage="Incorrect card number."
               rightIcon={(props) => (
                 <img
                   src={images_url['mastercard']}
@@ -34,19 +33,12 @@ export function NewCardForm({ context }) {
           }}
         >
           <InputMask mask="99/99" placeholder="MM / YY">
-            {(props) => (
-              <FormInput
-                label="Exp. Date"
-                errorMessage="Incorrect card number."
-                {...props}
-              />
-            )}
+            {(props) => <FormInput label="Exp. Date" {...props} />}
           </InputMask>
           <InputMask mask="999">
             {(inputProps) => (
               <FormInput
                 label="Security Code"
-                errorMessage="Incorrect card number."
                 // TODO: Tooltip card
                 infoCardComponent={() => <h1>info</h1>}
                 {...inputProps}
@@ -55,19 +47,14 @@ export function NewCardForm({ context }) {
           </InputMask>
         </div>
 
-        <FormInput
-          as="select"
-          label="Country"
-          errorMessage="Incorrect card number."
-        >
+        <FormInput as="select" label="Country">
           <option value="1">USA</option>
           <option value="2">Canada</option>
           <option value="3">Mexico</option>
         </FormInput>
-        <FormInput label="Zip Code" errorMessage="Incorrect card number." />
+        <FormInput label="Zip Code" />
         <FormInput
           label="Nickname (optional)"
-          errorMessage="Incorrect card number."
           placeholder="e.g. joint account or work card"
         />
       </div>

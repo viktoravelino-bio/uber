@@ -2,7 +2,6 @@ import './RequestRideOverlay.scss';
 
 import { Button } from '../../atoms/button/Button';
 import { ChevronRightIcon } from '../../../assets/icons';
-import { PaymentModal } from '../paymentModal/PaymentModal';
 import { usePayment } from '../../../context/PaymentContext';
 import { uppercaseFirstLetter } from '../../../lib/utils/uppercaseFirstLetter';
 
@@ -14,6 +13,7 @@ const IMAGE_MAP = {
 
 export function RequestRideOverlay({
   onOpenPaymentModal = () => {},
+  onConfirmRide = () => {},
   ...props
 }) {
   const { selectedPaymentOption } = usePayment();
@@ -28,7 +28,7 @@ export function RequestRideOverlay({
           </p>
           <ChevronRightIcon />
         </button>
-        <Button>Request UberX</Button>
+        <Button onClick={onConfirmRide}>Request UberX</Button>
       </div>
     </>
   );

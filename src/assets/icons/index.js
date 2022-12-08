@@ -13,3 +13,9 @@ export { ReactComponent as CloseIcon } from './close-icon.svg';
 export { ReactComponent as AddIcon } from './add-icon.svg';
 export { ReactComponent as BusinessIcon } from './business-icon.svg';
 export { ReactComponent as CheckIcon } from './check-icon.svg';
+
+export { ReactComponent as ArrowsLeftRight } from './ArrowsLeftRight.svg';
+export { ReactComponent as MapPin } from './MapPin.svg';
+export { ReactComponent as Screencast } from './Screencast.svg';
+export { ReactComponent as User } from './User.svg';
+export { ReactComponent as Star } from './Star.svg';

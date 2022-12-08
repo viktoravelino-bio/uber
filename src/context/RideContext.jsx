@@ -39,10 +39,10 @@ export function RideProvider({ children }) {
 
   const Gecoder = useMemo(() => new window.google.maps.Geocoder(), []);
 
-  async function handleChange(e) {
-    if (e.target.value === '') return;
+  async function handleChange(value) {
+    if (value === '') return;
     const { predictions } = await AutocompleteService.getPlacePredictions({
-      input: e.target.value,
+      input: value,
       region: 'ca',
     });
 

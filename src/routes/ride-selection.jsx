@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { RequestRideOverlay } from '../components/molecules/requestRideOverlay/RequestRideOverlay';
 import { RideExtraInfo } from '../components/molecules/rideExtraInfo/RideExtraInfo';
 import { PaymentModal } from '../components/molecules/paymentModal/PaymentModal';
+import { CovidPrompt } from '../components/molecules/covidPrompt/CovidPrompt';
 
 export function RideSelection() {
   const { rideTypes } = data;
@@ -15,6 +16,7 @@ export function RideSelection() {
   const [selectedRideTypeKey, setSelectedRideTypeKey] = useState(
     rideTypeArray[0][0]
   );
+  const [showCovidPrompt, setShowCovidPrompt] = useState(false);
 
   const selectedRide = rideTypes[selectedRideTypeKey];
 
@@ -60,11 +62,18 @@ export function RideSelection() {
 
       <RequestRideOverlay
         onOpenPaymentModal={() => setShowPaymentModal(true)}
+        onConfirmRide={() => setShowCovidPrompt(true)}
       />
 
       <PaymentModal
         visible={showPaymentModal}
         onClose={() => setShowPaymentModal(false)}
+      />
+
+      <CovidPrompt
+        visible={showCovidPrompt}
+        onRequestRide={() => console.log('request ride')}
+        onRequestClose={() => setShowCovidPrompt(false)}
       />
     </div>
   );

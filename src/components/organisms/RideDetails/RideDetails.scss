@@ -1,0 +1,15 @@
+.ride-detail-list-item {
+  display: flex;
+  padding: 0.875rem 1rem;
+  align-items: center;
+  gap: 0.875rem;
+  font-size: 0.875rem;
+  color: var(--clr-gray-700);
+  border-bottom: 1px solid var(--clr-gray-400);
+
+  > :last-child {
+    margin-left: auto;
+    color: rgb(0, 106, 255);
+    cursor: pointer;
+  }
+}

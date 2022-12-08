@@ -1,6 +1,7 @@
 import { forwardRef, useEffect, useState } from 'react';
 import { DestinationInputIcon, PickupInputIcon } from '../../../assets/icons';
 import { useRideContext } from '../../../context/RideContext';
+import { useDebounce } from '../../../hooks/useDebounce';
 import './AddressInput.scss';
 
 const Input = forwardRef(({ type = 'pickup', isFocused, ...props }, ref) => {
@@ -25,6 +26,8 @@ export function AddressInput({ onFocus }) {
   const [destinationValue, setDestinationValue] = useState(
     ride?.origin.address || ''
   );
+  const originValueDebounced = useDebounce(originValue, 500);
+  const destinationValueDebounced = useDebounce(destinationValue, 500);
 
   async function handleInternalChange(e) {
     if (e.target.name === 'origin') {
@@ -32,8 +35,6 @@ export function AddressInput({ onFocus }) {
     } else if (e.target.name === 'destination') {
       setDestinationValue(e.target.value);
     }
-
-    handleChange(e);
   }
 
   function handleFocus(e) {
@@ -41,6 +42,12 @@ export function AddressInput({ onFocus }) {
     handleInternalChange(e);
     onFocus(e);
   }
+
+  useEffect(() => {
+    handleChange(
+      type === 'origin' ? originValueDebounced : destinationValueDebounced
+    );
+  }, [originValueDebounced, destinationValueDebounced]);
 
   useEffect(() => {
     setOriginValue(ride?.origin.address);
