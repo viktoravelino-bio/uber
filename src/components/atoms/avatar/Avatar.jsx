@@ -2,9 +2,9 @@ import { Star } from '../../../assets/icons';
 import { getComponentSize } from '../../../lib/utils/getComponentSize';
 import './Avatar.scss';
 
-export function Avatar({ rating, size = 24, height, width }) {
+export function Avatar({ rating, size = 24, height, width, ...props }) {
   return (
-    <div className="avatar">
+    <div {...props} className="avatar">
       <img
         src="https://picsum.photos/200/300"
         alt="avatar"

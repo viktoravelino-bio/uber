@@ -19,3 +19,6 @@ export { ReactComponent as MapPin } from './MapPin.svg';
 export { ReactComponent as Screencast } from './Screencast.svg';
 export { ReactComponent as User } from './User.svg';
 export { ReactComponent as Star } from './Star.svg';
+export { ReactComponent as StarOutlined } from './StarOutlined.svg';
+export { ReactComponent as Phone } from './Phone.svg';
+export { ReactComponent as Sun } from './Sun.svg';

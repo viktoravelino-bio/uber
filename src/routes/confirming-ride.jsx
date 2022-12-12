@@ -8,11 +8,6 @@ import { LoadingProgressBar } from '../components/atoms/LoadingProgressBar/Loadi
 import { RideDetails } from '../components/organisms/RideDetails/RideDetails';
 import { useRideContext } from '../context/RideContext';
 
-const steps = [
-  { label: 'Confirming your trip', image: loading1 },
-  { label: 'Connecting you to a driver', image: loading2 },
-];
-
 export function ConfirmingRide() {
   const { ride } = useRideContext();
   const navigate = useNavigate();
@@ -36,12 +31,17 @@ export function ConfirmingRide() {
   useEffect(() => {
     const interval = setInterval(() => {
       setLoadingStep((prev) => {
-        if (prev === 4) navigate('/riding');
         return prev + 1;
       });
     }, 2000);
     return () => clearInterval(interval);
   }, []);
+
+  useEffect(() => {
+    if (loadingStep === 5) {
+      navigate('/riding');
+    }
+  }, [loadingStep]);
 
   return (
     <div>

@@ -1,0 +1,37 @@
+.rating-stars {
+  display: flex;
+  justify-content: center;
+  //   gap: 1rem;
+  width: fit-content;
+  margin-inline: auto;
+
+  > svg {
+    cursor: pointer;
+    stroke: var(--clr-gray-600);
+    stroke-width: 2px;
+    color: transparent;
+    height: 35px;
+    width: 35px;
+  }
+
+  &.active > svg {
+    stroke: #ffd500;
+    color: #ffd500;
+  }
+
+  > svg:hover ~ *,
+  > svg.active ~ * {
+    stroke: var(--clr-gray-600);
+    color: transparent;
+  }
+
+  &:hover > svg {
+    stroke: #ffd500;
+    color: #ffd500;
+  }
+
+  > svg:hover ~ * {
+    stroke: var(--clr-gray-600);
+    color: transparent;
+  }
+}

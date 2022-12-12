@@ -1,9 +1,15 @@
-import { Avatar } from '../components/atoms/avatar/Avatar';
 import { Button } from '../components/atoms/button/Button';
 import { DriverInfo } from '../components/molecules/driverInfo/DriverInfo';
 import { RideDetails } from '../components/organisms/RideDetails/RideDetails';
 import car from '../assets/images/car.png';
+import { Actions } from '../components/molecules/actions/Actions';
+import { Modal } from '../components/atoms/modal/Modal';
+import { Avatar } from '../components/atoms/avatar/Avatar';
+import { useState } from 'react';
+import { RatingStars } from '../components/molecules/RatingStars/RatingStars';
+
 export function Riding() {
+  const [showRatingModal, setShowRatingModal] = useState(false);
   return (
     <div>
       <DriverInfo
@@ -14,6 +20,8 @@ export function Riding() {
         carImg={car}
       />
 
+      <Actions />
+
       <RideDetails />
 
       <Button
@@ -23,6 +31,28 @@ export function Riding() {
       >
         Cancel
       </Button>
+      <Button variant="ghost" onClick={() => setShowRatingModal(true)}>
+        End Ride
+      </Button>
+
+      <Modal
+        visible={showRatingModal}
+        onRequestClose={() => setShowRatingModal(false)}
+        showSkipButton
+      >
+        <Avatar size={60} style={{ marginInline: 'auto' }} />
+
+        <h1
+          style={{
+            textAlign: 'center',
+            marginBlock: '1rem',
+          }}
+        >
+          Rate you trip and thank Ante with a tip
+        </h1>
+
+        <RatingStars />
+      </Modal>
     </div>
   );
 }

@@ -1,5 +1,11 @@
 import './Button.scss';
 
-export function Button({ variant = 'primary', ...props }) {
-  return <button className="button" data-variant={variant} {...props} />;
+export function Button({ variant = 'primary', className, ...props }) {
+  return (
+    <button
+      className={'button ' + className}
+      data-variant={variant}
+      {...props}
+    />
+  );
 }

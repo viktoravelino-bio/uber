@@ -6,10 +6,19 @@
   align-items: center;
   justify-content: center;
   border-radius: 0.25rem;
-  padding: 0.375rem 0.5rem;
   transition: background-color 0.2s ease-in-out;
+  line-height: 0;
+  > svg {
+    vertical-align: middle;
+  }
 
   &:hover {
     background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  &[data-rounded='true'] {
+    padding: 0.5rem;
+    color: red;
+    border-radius: 100%;
   }
 }
