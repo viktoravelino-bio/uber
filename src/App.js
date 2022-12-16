@@ -1,5 +1,6 @@
 import { useJsApiLoader } from '@react-google-maps/api';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import { TipDriver } from './components/organisms/tipDriver/TipDriver';
 import { MapView } from './components/view/mapView';
 import { LocationProvider } from './context/LocationContext';
 import { PaymentProvider } from './context/PaymentContext';
@@ -35,6 +36,7 @@ function App() {
                 <Route path="riding" element={<Riding />} />
               </Route>
 
+              <Route path="tipping/:rating" element={<TipDriver />} />
               <Route path="/testing" element={<Testings />} />
             </Routes>
           </PaymentProvider>

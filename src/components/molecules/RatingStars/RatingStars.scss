@@ -15,8 +15,8 @@
   }
 
   &.active > svg {
-    stroke: #ffd500;
-    color: #ffd500;
+    stroke: black;
+    color: black;
   }
 
   > svg:hover ~ *,
@@ -26,12 +26,16 @@
   }
 
   &:hover > svg {
-    stroke: #ffd500;
-    color: #ffd500;
+    stroke: black;
+    color: black;
   }
 
   > svg:hover ~ * {
     stroke: var(--clr-gray-600);
     color: transparent;
+  }
+
+  &.readOnly {
+    pointer-events: none;
   }
 }

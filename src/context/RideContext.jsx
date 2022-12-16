@@ -27,6 +27,23 @@ export function RideProvider({ children }) {
     },
   });
 
+  function reset() {
+    setRide({
+      origin: {
+        location: '',
+        address: '',
+      },
+      destination: {
+        location: '',
+        address: '',
+      },
+      matrix: {
+        distance: null,
+        duration: null,
+      },
+    });
+  }
+
   const AutocompleteService = useMemo(
     () => new window.google.maps.places.AutocompleteService(),
     []
@@ -108,6 +125,7 @@ export function RideProvider({ children }) {
         type,
         showFullScreen,
         setShowFullScreen,
+        reset,
       }}
     >
       {children}

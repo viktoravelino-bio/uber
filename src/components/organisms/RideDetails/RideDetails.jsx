@@ -1,6 +1,5 @@
 import {
   MapPin,
-  User,
   UserIcon,
   ArrowsLeftRight,
   Screencast,
@@ -31,7 +30,7 @@ export function RideDetails() {
   const {
     destination: { address },
   } = ride;
-  const { type, lastFour, nickName } = selectedPaymentOption;
+  const { type, lastFour } = selectedPaymentOption;
 
   return (
     <div>

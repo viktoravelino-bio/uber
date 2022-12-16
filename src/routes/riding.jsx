@@ -7,9 +7,11 @@ import { Modal } from '../components/atoms/modal/Modal';
 import { Avatar } from '../components/atoms/avatar/Avatar';
 import { useState } from 'react';
 import { RatingStars } from '../components/molecules/RatingStars/RatingStars';
+import { useNavigate } from 'react-router-dom';
 
 export function Riding() {
   const [showRatingModal, setShowRatingModal] = useState(false);
+  const navigate = useNavigate();
   return (
     <div>
       <DriverInfo
@@ -51,7 +53,11 @@ export function Riding() {
           Rate you trip and thank Ante with a tip
         </h1>
 
-        <RatingStars />
+        <RatingStars
+          onClick={(r) => {
+            navigate(`/tipping/${r}`);
+          }}
+        />
       </Modal>
     </div>
   );

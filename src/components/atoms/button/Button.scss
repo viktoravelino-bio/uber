@@ -1,7 +1,8 @@
 .button {
   background-color: var(--clr-black);
+  border: 1px solid var(--clr-black);
   color: var(--clr-white);
-  border: none;
+  // border: none;
   outline: none;
   display: inline-flex;
   align-items: center;
@@ -26,7 +27,17 @@
 
   &[data-variant='ghost'] {
     background-color: transparent;
+    border-color: transparent;
     color: var(--clr-black);
+    &:hover {
+      background-color: var(--clr-gray-300);
+    }
+  }
+
+  &[data-variant='outlined'] {
+    background-color: transparent;
+    color: var(--clr-black);
+    border: 1px solid black;
     &:hover {
       background-color: var(--clr-gray-300);
     }

@@ -1,8 +1,6 @@
-import { useState } from 'react';
-import { PaymentModal } from '../components/molecules/paymentModal/PaymentModal';
+import { TipDriver } from '../components/organisms/tipDriver/TipDriver';
 
 export function Testings() {
-  const [visible, setVisible] = useState(false);
   return (
     <div
       style={{
@@ -11,12 +9,7 @@ export function Testings() {
         height: '100vh',
       }}
     >
-      <button onClick={() => setVisible((prev) => !prev)}>Toggle Modal</button>
-
-      <PaymentModal
-        visible={visible}
-        onClose={() => setVisible(false)}
-      ></PaymentModal>
+      <TipDriver />
     </div>
   );
 }
